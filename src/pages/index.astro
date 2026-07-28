@@ -42,7 +42,7 @@ nav{display:flex;align-items:center;justify-content:space-between;gap:20px;heigh
 .hirebtn{padding:9px 16px;border:2px solid var(--ink);background:var(--acid);font:700 12px var(--mono);text-decoration:none;box-shadow:4px 4px 0 var(--ink);transition:transform .15s,box-shadow .15s}
 .hirebtn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
 
-/* side route + cyclist progress (Vertical) */
+/* side route + cyclist progress */
 .route{position:fixed;right:26px;top:110px;bottom:60px;width:2px;z-index:40;pointer-events:none;
   background:repeating-linear-gradient(180deg,var(--ink) 0 8px,transparent 8px 16px);opacity:.35}
 .route .rider{position:absolute;left:50%;top:0;transform:translate(-50%,-50%);font-size:26px;filter:drop-shadow(2px 3px 0 rgb(19 26 48/25%));transition:top .12s linear}
@@ -166,15 +166,6 @@ h2{margin:0 0 20px;font-size:clamp(40px,4.6vw,72px);line-height:.9;letter-spacin
 footer{padding:26px 0;background:var(--ink);color:rgb(255 255 255/65%);border-top:1px dashed rgb(255 255 255/25%);font:500 11px var(--mono);text-transform:uppercase}
 .foot{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 
-/* --- Scroll Journey Specific CSS --- */
-[data-scroll-journey] { position: relative; }
-.has-scroll-journey [data-scroll-journey] { height: var(--journey-height, auto); }
-.has-scroll-journey .journey-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; display: flex; align-items: center; }
-.has-scroll-journey .journey-track { display: flex; width: max-content; height: 100vh; will-change: transform; }
-.has-scroll-journey .journey-panel { width: 100vw; max-width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; overflow-y: auto; padding: 110px 0; }
-.has-scroll-journey .route { display: none; } /* Hide vertical route progress line when horizontal active */
-#scroll-bike-container { position: absolute; bottom: 15%; left: 0; z-index: 100; will-change: transform; font-size: 50px; pointer-events: none; filter: drop-shadow(2px 4px 0 rgb(19 26 48/25%)); }
-
 @media(max-width:900px){.navlinks{display:none}.route{display:none}}
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -188,7 +179,7 @@ footer{padding:26px 0;background:var(--ink);color:rgb(255 255 255/65%);border-to
 <header>
   <nav class="wrap">
     <a class="brand" href="#top">i am<br>enoch</a>
-    <div class="navlinks" class="links">
+    <div class="navlinks">
       <a href="#projects">Projects</a><a href="#experience">Experience</a>
       <a href="#education">Education</a><a href="#skills">Skills</a>
     </div>
@@ -213,120 +204,101 @@ footer{padding:26px 0;background:var(--ink);color:rgb(255 255 255/65%);border-to
   </div>
 </div>
 
-<!-- ============================================== -->
-<!-- HORIZONTAL SCROLL JOURNEY WRAPPER STARTS HERE  -->
-<!-- ============================================== -->
-<div data-scroll-journey>
-  <div class="journey-sticky">
-    
-    <!-- This is the bike the JS targets for the horizontal journey -->
-    <div id="scroll-bike-container" aria-hidden="true">🚴</div>
-
-    <div class="journey-track">
-      
-      <section id="projects" class="gridbg journey-panel">
-        <div class="wrap">
-          <p class="waypoint"><b>01</b>Waypoint — Selected work</p>
-          <h2>Projects</h2>
-          <p class="lede">Define the problem, examine the system underneath, ship something that can be used, evaluated or experienced.</p>
-          <div class="projects">
-            <article class="project p1 reveal"><span class="pill">2026</span><div class="mark" aria-hidden="true">{ }</div>
-              <h3>LLM-Assisted Smart Contract Vulnerability Detection</h3>
-              <p>An analysis framework applying large language models to smart-contract review, with emphasis on risks such as reentrancy.</p>
-              <div class="tags"><span class="tag">LLM</span><span class="tag">Smart contracts</span><span class="tag">Security</span></div>
-            </article>
-            <article class="project p2 reveal"><span class="pill">2026</span><div class="mark" aria-hidden="true">AI</div>
-              <h3>Intelligent Healthcare System</h3>
-              <p>A home-use healthcare concept combining multimodal inference and connected-device coordination for medication support.</p>
-              <div class="tags"><span class="tag">Multimodal AI</span><span class="tag">IoT</span><span class="tag">Healthcare</span></div>
-            </article>
-            <article class="project p3 reveal"><span class="pill">2024</span><div class="mark" aria-hidden="true">心</div>
-              <h3>PACTwork</h3>
-              <p>An interactive art project developed with Centrifugal Art Force, presented at the Hong Kong Palace Museum.</p>
-              <div class="tags"><span class="tag">Interactive media</span><span class="tag">Exhibition</span></div>
-            </article>
-            <article class="project p4 reveal"><span class="pill">2025</span><div class="mark" aria-hidden="true">N+C</div>
-              <h3>Nature and City</h3>
-              <p>An interactive digital artwork examining how urbanisation influences perception across physical and digital spaces.</p>
-              <div class="tags"><span class="tag">Creative coding</span><span class="tag">Digital art</span></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" class="gridbg journey-panel">
-        <div class="wrap">
-          <p class="waypoint"><b>02</b>Waypoint — Professional</p>
-          <h2>Work Experience</h2>
-          <p class="lede">Fintech research, AI-enabled hardware, full-stack development, public-sector engineering and interactive media.</p>
-          <div class="tl">
-            <article class="tl-item reveal"><div class="tl-meta"><time>2026</time><span>ASTRI FinTech Future Leader Academy</span></div>
-              <h3>Blockchain &amp; Post-Quantum Researcher</h3><p>Research at the intersection of blockchain systems and post-quantum technologies.</p></article>
-            <article class="tl-item reveal"><div class="tl-meta"><time>2025–2026</time><span>AI Technical Hardware Internship</span></div>
-              <h3>AI Technical Hardware Intern</h3><p>Connecting AI software with hardware systems and device-level implementation.</p></article>
-            <article class="tl-item reveal"><div class="tl-meta"><time>2024</time><span>NexRehabs</span></div>
-              <h3>Programmer — Full-Stack &amp; AI Integration</h3><p>Full-stack development and integration of AI capabilities into application workflows.</p></article>
-            <article class="tl-item reveal"><div class="tl-meta"><time>Fall 2024</time><span>Centrifugal Art Force</span></div>
-              <h3>Programmer — PACTwork</h3><p>Programming for an interactive art project presented at the Hong Kong Palace Museum.</p></article>
-            <article class="tl-item reveal"><div class="tl-meta"><time>2023</time><span>Inland Revenue Department</span></div>
-              <h3>Programmer — Software Engineering &amp; Pipelines</h3><p>Software engineering and processing-pipeline development in a public-sector environment.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section id="education" class="gridbg journey-panel">
-        <div class="wrap">
-          <p class="waypoint"><b>03</b>Waypoint — Academic</p>
-          <h2>Education</h2>
-          <p class="lede">From computing fundamentals to advanced study in blockchain systems.</p>
-          <div class="edu">
-            <article class="edu-card reveal">
-              <div><span class="edu-year">2026</span><br><span class="edu-gpa">GPA 3.91 · Expected</span></div>
-              <div><h3>MSc in Blockchain Technology</h3><p>The Hong Kong Polytechnic University</p></div>
-            </article>
-            <article class="edu-card reveal">
-              <div><span class="edu-year">2023–25</span><br><span class="edu-gpa">GPA 3.17</span></div>
-              <div><h3>BSc (Hons) Computing</h3><p>The Hong Kong Polytechnic University</p></div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" class="gridbg journey-panel">
-        <div class="wrap">
-          <p class="waypoint"><b>04</b>Waypoint — Toolkit</p>
-          <h2>Technical Toolkit</h2>
-          <p class="lede">A cross-disciplinary foundation spanning software, AI, connected hardware, blockchain security and fintech.</p>
-          <div class="matrix">
-            <span class="skill">Java</span><span class="skill">Python</span><span class="skill">SQL</span><span class="skill">C</span>
-            <span class="skill">C++</span><span class="skill">HTML &amp; CSS</span><span class="skill">Full-Stack Development</span><span class="skill">AI Integration</span>
-            <span class="skill">Software–Hardware Integration</span><span class="skill">Pipeline Development</span><span class="skill">Deep Learning</span><span class="skill">Reinforcement Learning</span>
-            <span class="skill">Smart Contract Security</span><span class="skill">Blockchain Research</span><span class="skill">Post-Quantum Technology</span><span class="skill">Cryptography Fundamentals</span>
-            <span class="skill">Fintech Regulation</span><span class="skill">AML &amp; Risk Management</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="bring" class="gridbg journey-panel">
-        <div class="wrap">
-          <p class="waypoint"><b>05</b>Waypoint — Positioning</p>
-          <h2>What I Bring</h2>
-          <p class="lede">Product thinking, systems awareness and the ability to learn across technical domains.</p>
-          <div class="posters">
-            <article class="poster reveal"><b>End-to-end engineering</b><p>Experience across full-stack development, AI integration, hardware-connected systems and processing pipelines.</p></article>
-            <article class="poster reveal"><b>Research &amp; security mindset</b><p>Current research exposure in blockchain and post-quantum technology, supported by postgraduate blockchain study.</p></article>
-            <article class="poster reveal"><b>Technical creativity</b><p>Programming experience extends to interactive media and public-facing creative technology projects.</p></article>
-          </div>
-        </div>
-      </section>
-
+<section id="projects" class="gridbg">
+  <div class="wrap">
+    <p class="waypoint"><b>01</b>Waypoint — Selected work</p>
+    <h2>Projects</h2>
+    <p class="lede">Define the problem, examine the system underneath, ship something that can be used, evaluated or experienced.</p>
+    <div class="projects">
+      <article class="project p1 reveal"><span class="pill">2026</span><div class="mark" aria-hidden="true">{ }</div>
+        <h3>LLM-Assisted Smart Contract Vulnerability Detection</h3>
+        <p>An analysis framework applying large language models to smart-contract review, with emphasis on risks such as reentrancy.</p>
+        <div class="tags"><span class="tag">LLM</span><span class="tag">Smart contracts</span><span class="tag">Security</span></div>
+      </article>
+      <article class="project p2 reveal"><span class="pill">2026</span><div class="mark" aria-hidden="true">AI</div>
+        <h3>Intelligent Healthcare System</h3>
+        <p>A home-use healthcare concept combining multimodal inference and connected-device coordination for medication support.</p>
+        <div class="tags"><span class="tag">Multimodal AI</span><span class="tag">IoT</span><span class="tag">Healthcare</span></div>
+      </article>
+      <article class="project p3 reveal"><span class="pill">2024</span><div class="mark" aria-hidden="true">心</div>
+        <h3>PACTwork</h3>
+        <p>An interactive art project developed with Centrifugal Art Force, presented at the Hong Kong Palace Museum.</p>
+        <div class="tags"><span class="tag">Interactive media</span><span class="tag">Exhibition</span></div>
+      </article>
+      <article class="project p4 reveal"><span class="pill">2025</span><div class="mark" aria-hidden="true">N+C</div>
+        <h3>Nature and City</h3>
+        <p>An interactive digital artwork examining how urbanisation influences perception across physical and digital spaces.</p>
+        <div class="tags"><span class="tag">Creative coding</span><span class="tag">Digital art</span></div>
+      </article>
     </div>
   </div>
-</div>
-<!-- ============================================== -->
-<!-- HORIZONTAL SCROLL JOURNEY WRAPPER ENDS HERE    -->
-<!-- ============================================== -->
+</section>
 
+<section id="experience" class="gridbg">
+  <div class="wrap">
+    <p class="waypoint"><b>02</b>Waypoint — Professional</p>
+    <h2>Work Experience</h2>
+    <p class="lede">Fintech research, AI-enabled hardware, full-stack development, public-sector engineering and interactive media.</p>
+    <div class="tl">
+      <article class="tl-item reveal"><div class="tl-meta"><time>2026</time><span>ASTRI FinTech Future Leader Academy</span></div>
+        <h3>Blockchain &amp; Post-Quantum Researcher</h3><p>Research at the intersection of blockchain systems and post-quantum technologies.</p></article>
+      <article class="tl-item reveal"><div class="tl-meta"><time>2025–2026</time><span>AI Technical Hardware Internship</span></div>
+        <h3>AI Technical Hardware Intern</h3><p>Connecting AI software with hardware systems and device-level implementation.</p></article>
+      <article class="tl-item reveal"><div class="tl-meta"><time>2024</time><span>NexRehabs</span></div>
+        <h3>Programmer — Full-Stack &amp; AI Integration</h3><p>Full-stack development and integration of AI capabilities into application workflows.</p></article>
+      <article class="tl-item reveal"><div class="tl-meta"><time>Fall 2024</time><span>Centrifugal Art Force</span></div>
+        <h3>Programmer — PACTwork</h3><p>Programming for an interactive art project presented at the Hong Kong Palace Museum.</p></article>
+      <article class="tl-item reveal"><div class="tl-meta"><time>2023</time><span>Inland Revenue Department</span></div>
+        <h3>Programmer — Software Engineering &amp; Pipelines</h3><p>Software engineering and processing-pipeline development in a public-sector environment.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="gridbg">
+  <div class="wrap">
+    <p class="waypoint"><b>03</b>Waypoint — Academic</p>
+    <h2>Education</h2>
+    <p class="lede">From computing fundamentals to advanced study in blockchain systems.</p>
+    <div class="edu">
+      <article class="edu-card reveal">
+        <div><span class="edu-year">2026</span><br><span class="edu-gpa">GPA 3.91 · Expected</span></div>
+        <div><h3>MSc in Blockchain Technology</h3><p>The Hong Kong Polytechnic University</p></div>
+      </article>
+      <article class="edu-card reveal">
+        <div><span class="edu-year">2023–25</span><br><span class="edu-gpa">GPA 3.17</span></div>
+        <div><h3>BSc (Hons) Computing</h3><p>The Hong Kong Polytechnic University</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="gridbg">
+  <div class="wrap">
+    <p class="waypoint"><b>04</b>Waypoint — Toolkit</p>
+    <h2>Technical Toolkit</h2>
+    <p class="lede">A cross-disciplinary foundation spanning software, AI, connected hardware, blockchain security and fintech.</p>
+    <div class="matrix">
+      <span class="skill">Java</span><span class="skill">Python</span><span class="skill">SQL</span><span class="skill">C</span>
+      <span class="skill">C++</span><span class="skill">HTML &amp; CSS</span><span class="skill">Full-Stack Development</span><span class="skill">AI Integration</span>
+      <span class="skill">Software–Hardware Integration</span><span class="skill">Pipeline Development</span><span class="skill">Deep Learning</span><span class="skill">Reinforcement Learning</span>
+      <span class="skill">Smart Contract Security</span><span class="skill">Blockchain Research</span><span class="skill">Post-Quantum Technology</span><span class="skill">Cryptography Fundamentals</span>
+      <span class="skill">Fintech Regulation</span><span class="skill">AML &amp; Risk Management</span>
+    </div>
+  </div>
+</section>
+
+<section id="bring" class="gridbg">
+  <div class="wrap">
+    <p class="waypoint"><b>05</b>Waypoint — Positioning</p>
+    <h2>What I Bring</h2>
+    <p class="lede">Product thinking, systems awareness and the ability to learn across technical domains.</p>
+    <div class="posters">
+      <article class="poster reveal"><b>End-to-end engineering</b><p>Experience across full-stack development, AI integration, hardware-connected systems and processing pipelines.</p></article>
+      <article class="poster reveal"><b>Research &amp; security mindset</b><p>Current research exposure in blockchain and post-quantum technology, supported by postgraduate blockchain study.</p></article>
+      <article class="poster reveal"><b>Technical creativity</b><p>Programming experience extends to interactive media and public-facing creative technology projects.</p></article>
+    </div>
+  </div>
+</section>
 
 <section id="contact">
   <div class="wrap">
@@ -371,7 +343,7 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.12 });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* cyclist rides down the vertical route as you scroll (Mobile fallback / Header area) */
+/* cyclist rides down the route as you scroll */
 const rider = document.getElementById('rider');
 function ride() {
   const max = document.documentElement.scrollHeight - innerHeight;
@@ -380,63 +352,6 @@ function ride() {
   rider.style.transform = 'translate(-50%,-50%) rotate(' + (Math.sin(p * 20) * 6) + 'deg)';
 }
 if (!reduce) { addEventListener('scroll', ride, { passive: true }); ride(); }
-
-/* ========================================= */
-/* Scroll Journey (Horizontal) Script Plugin */
-/* ========================================= */
-(() => {
-  'use strict';
-
-  const journey = document.querySelector('[data-scroll-journey]');
-  const sticky = journey?.querySelector('.journey-sticky');
-  const track = journey?.querySelector('.journey-track');
-  const panels = [...(journey?.querySelectorAll('.journey-panel') ?? [])];
-  const bike = document.getElementById('scroll-bike-container');
-  const road = document.querySelector('.journey-road span');
-  const city = document.querySelector('.city-layer');
-  const hillBack = document.querySelector('.hill-back');
-  const hillFront = document.querySelector('.hill-front');
-  const speedLines = document.querySelector('.speed-lines');
-  const education = document.getElementById('education');
-  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const desktop = matchMedia('(min-width: 768px)');
-  const sufficientHeight = matchMedia('(min-height: 780px)');
-
-  if (!journey || !sticky || !track || !panels.length) return;
-
-  const supportsJourney = 'ResizeObserver' in window && CSS.supports('position', 'sticky') && CSS.supports('transform', 'translate3d(0,0,0)');
-  const MOTION = Object.freeze({smoothing:.08,road:.65,city:.16,hillBack:.09,hillFront:.28,educationArt:.035,entryEnd:.08,exitStart:.9});
-  let target=0,current=0,previous=0,distance=0,journeyTop=0,journeyRange=1,frame=0;
-  const clamp=(value,min=0,max=1)=>Math.min(Math.max(value,min),max);
-  const ease=value=>value<.5?4*value*value*value:1-Math.pow(-2*value+2,3)/2;
-
-  function isEnabled(){return supportsJourney&&desktop.matches&&sufficientHeight.matches&&!reduceMotion.matches}
-  function panelProgress(panel){return distance>0?clamp(panel.offsetLeft/distance):0}
-  function updateTarget(){if(!isEnabled())return;target=clamp((scrollY-journeyTop)/journeyRange);if(!frame)frame=requestAnimationFrame(render)}
-  function measure(){if(!isEnabled())return;distance=Math.max(track.scrollWidth-innerWidth,0);journey.style.setProperty('--journey-distance',`${distance}px`);journey.style.setProperty('--journey-height',`${distance+innerHeight}px`);journeyTop=journey.getBoundingClientRect().top+scrollY;journeyRange=Math.max(journey.offsetHeight-innerHeight,1);updateTarget()}
-
-  function nearestPanelIndex(travelled){const viewportCenter=travelled+innerWidth/2;return panels.reduce((nearest,panel,index)=>{const center=panel.offsetLeft+panel.offsetWidth/2;const nearestPanel=panels[nearest];const nearestCenter=nearestPanel.offsetLeft+nearestPanel.offsetWidth/2;return Math.abs(center-viewportCenter)<Math.abs(nearestCenter-viewportCenter)?index:nearest},0)}
-  function updateActiveState(travelled){const activeIndex=nearestPanelIndex(travelled);panels.forEach((panel,index)=>panel.classList.toggle('is-active',index===activeIndex));document.querySelectorAll('.links a[href^="#"]').forEach(link=>{const linkedPanel=document.querySelector(link.hash);if(linkedPanel===panels[activeIndex])link.setAttribute('aria-current','location');else link.removeAttribute('aria-current')})}
-
-  function render(){frame=0;if(!isEnabled())return;current+=(target-current)*MOTION.smoothing;const delta=current-previous;previous=current;const travelled=current*distance;track.style.transform=`translate3d(${-travelled}px,0,0)`;if(road)road.style.transform=`translate3d(${-(travelled*MOTION.road)%64}px,0,0)`;if(city)city.style.transform=`translate3d(${-(travelled*MOTION.city)%innerWidth}px,0,0)`;if(hillBack)hillBack.style.transform=`translate3d(${-(travelled*MOTION.hillBack)%innerWidth}px,0,0)`;if(hillFront)hillFront.style.transform=`translate3d(${-(travelled*MOTION.hillFront)%innerWidth}px,0,0)`;if(speedLines)speedLines.style.opacity=String(clamp(Math.abs(delta)*70,0,.38));if(education){const shift=clamp(-travelled*MOTION.educationArt,-32,0);education.style.setProperty('--polyu-art-shift',`${shift}px`)}if(bike){let bikeX;if(current<MOTION.entryEnd)bikeX=-420+ease(current/MOTION.entryEnd)*(innerWidth*.5+420);else if(current<MOTION.exitStart)bikeX=innerWidth*.5;else bikeX=innerWidth*.5+ease((current-MOTION.exitStart)/(1-MOTION.exitStart))*(innerWidth*.72);const rotation=travelled*.72;bike.style.transform=`translate3d(${bikeX}px,${Math.sin(rotation*Math.PI/110)*3}px,0) translateX(-50%) rotate(${clamp(delta*400,-1.5,1.5)}deg)`}updateActiveState(travelled);if(Math.abs(target-current)>.0001)frame=requestAnimationFrame(render)}
-
-  function navigateTo(panel,behavior='smooth',updateHistory=false){if(!panels.includes(panel))return;const progress=panelProgress(panel);if(updateHistory&&panel.id)history.pushState(null,'',`#${panel.id}`);if(behavior==='auto'){target=progress;current=progress;previous=progress;track.style.transform=`translate3d(${-progress*distance}px,0,0)`;updateActiveState(progress*distance)}scrollTo({top:journeyTop+progress*journeyRange,behavior:reduceMotion.matches?'auto':behavior})}
-  function routeHash(behavior='auto'){if(!isEnabled()||!location.hash)return;const panel=document.querySelector(location.hash);if(!panels.includes(panel))return;requestAnimationFrame(()=>{measure();navigateTo(panel,behavior,false)})}
-  function resetVerticalMode(){cancelAnimationFrame(frame);frame=0;target=current=previous=0;journey.style.removeProperty('--journey-height');journey.style.removeProperty('--journey-distance');track.style.removeProperty('transform');bike?.style.removeProperty('transform');[road,city,hillBack,hillFront].forEach(layer=>layer?.style.removeProperty('transform'));speedLines?.style.removeProperty('opacity');education?.style.removeProperty('--polyu-art-shift');panels.forEach(panel=>panel.classList.add('is-active'));document.querySelectorAll('.links a[aria-current]').forEach(link=>link.removeAttribute('aria-current'))}
-  function setMode(){const enabled=isEnabled();document.documentElement.classList.toggle('has-scroll-journey',enabled);if(!enabled){resetVerticalMode();return}panels.forEach((panel,index)=>panel.classList.toggle('is-active',index===0));requestAnimationFrame(()=>{measure();routeHash('auto')})}
-
-  document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{if(!isEnabled())return;const panel=document.querySelector(link.hash);if(!panels.includes(panel))return;event.preventDefault();navigateTo(panel,'smooth',true)}));
-  track.addEventListener('focusin',event=>{if(!isEnabled())return;const panel=event.target.closest('.journey-panel');if(panels.includes(panel)&&Math.abs(panelProgress(panel)-target)>.01)navigateTo(panel,'auto',false)});
-  addEventListener('scroll',updateTarget,{passive:true});
-  addEventListener('resize',measure,{passive:true});
-  addEventListener('hashchange',()=>routeHash('auto'));
-  addEventListener('popstate',()=>routeHash('auto'));
-  desktop.addEventListener('change',setMode);
-  sufficientHeight.addEventListener('change',setMode);
-  reduceMotion.addEventListener('change',setMode);
-  new ResizeObserver(measure).observe(track);
-  setMode();
-})();
 </script>
 </body>
 </html>
