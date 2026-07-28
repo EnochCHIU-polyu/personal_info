@@ -1,67 +1,50 @@
-name: Build and deploy Vite site
+name: BlockSec Award RSVP Web Form Action
 
+# This triggers the action when a web form sends a webhook (repository_dispatch)
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: github-pages
-  cancel-in-progress: true
+  repository_dispatch:
+    types: [submit_rsvp]
 
 jobs:
-  build:
-    name: Build with Bun
+  process_rsvp_and_email:
+    name: Process RSVP and Send Email
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      # Step 1: Log the incoming web form data (for debugging purposes)
+      - name: Parse Web Form Data
+        run: |
+          echo "Processing RSVP for: ${{ github.event.client_payload.student_name }}"
+          echo "Student ID: ${{ github.event.client_payload.student_id }}"
+          echo "Attendance Decision: ${{ github.event.client_payload.decision }}" # e.g., "accept" or "decline"
 
-      - name: Set up Bun
-        uses: oven-sh/setup-bun@v2
+      # Step 2: Send the automated email reply based on the form data
+      - name: Send Email Reply to General Office
+        uses: dawidd6/action-send-mail@v3
         with:
-          bun-version: latest
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Build Vite project
-        run: bun run build
-        env:
-          # This MUST exactly match your repository name. 
-          # Case-sensitive, with leading and trailing slashes.
-          VITE_BASE_PATH: /my-web-starter/
-
-      - name: Upload Pages artifact
-        if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./dist
-
-  deploy:
-    name: Deploy to GitHub Pages
-    if: github.event_name != 'pull_request'
-    needs: build
-    runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Deploy website
-        id: deployment
-        uses: actions/deploy-pages@v4
+          server_address: smtp.your-email-provider.com
+          server_port: 465
+          secure: true
+          # Make sure to store your email credentials securely in GitHub Secrets
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Re: Invitation to the BlockSec Blockchain Security Award Presentation Ceremony 2025/26"
+          # Replace this with Annie's actual email address from the original email
+          to: annie.computing@polyu.edu.hk 
+          from: ${{ github.event.client_payload.student_name }} <${{ secrets.EMAIL_USERNAME }}>
+          
+          # The body of the email dynamically populates based on the web form inputs
+          body: |
+            Dear Annie,
+            
+            Thank you very much for the invitation to the BlockSec Blockchain Security Award Presentation Ceremony.
+            
+            I am writing to formally ${{ github.event.client_payload.decision }} the invitation for Wednesday, 5 August 2026. 
+            
+            Thank you again for your time and for coordinating this event.
+            
+            Yours sincerely,
+            
+            ${{ github.event.client_payload.student_name }}
+            Student ID: ${{ github.event.client_payload.student_id }}
+            Phone: ${{ github.event.client_payload.phone_number }}
