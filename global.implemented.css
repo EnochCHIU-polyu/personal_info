@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Source+Sans+3:wght@400;600;700&family=Syne:wght@600;700;800&display=swap');
+:root{--bg:#f1f5f9;--ink:#10172d;--muted:#58647a;--line:#d5dce6;--blue:#4b86ee;--red:#e5484d;--purple:#b49bff;--yellow:#ffbd00;--green:#51bfa0;--dark:#282b30;--max:1450px;--font-display:'Syne',sans-serif;--font-body:'Source Sans 3',sans-serif;--font-mono:'DM Mono',monospace;--header-height:80px;--road-offset:26px;--panel-pad-top:118px;--panel-pad-bottom:132px;--z-scenery:2;--z-track:6;--z-content:8;--z-sticky:10;--z-road:19;--z-bike:20;--z-header:60;--focus-ring:3px solid var(--blue)}*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body)}a{color:inherit}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.skip{position:fixed;left:12px;top:8px;z-index:100;transform:translateY(-150%);background:white;padding:10px}.skip:focus{transform:none}.header{position:sticky;top:0;z-index:20;background:rgba(248,250,252,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:80px;display:grid;grid-template-columns:210px 1fr auto;align-items:center;gap:25px}.brand{font-size:25px;font-weight:800;line-height:.82;letter-spacing:-.05em;text-decoration:none}.links{display:flex;justify-content:center;gap:26px;font-size:13px;font-weight:600;text-transform:uppercase}.links a{text-decoration:none}.links a:hover{text-decoration:underline;text-underline-offset:6px}.contact-link{text-decoration:none;font-weight:700}.hero{min-height:calc(100vh - 80px);padding:145px 0 105px}.status{display:inline-flex;margin-bottom:42px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:white;font:500 11px var(--font-mono);text-transform:uppercase}.status:before{content:'';width:8px;height:8px;margin:3px 8px 0 0;border-radius:50%;background:var(--green)}.hero h1{max-width:1310px;margin:0;font-size:clamp(54px,6.6vw,103px);line-height:.99;letter-spacing:-.06em}.icon-word{display:inline-flex;align-items:baseline;white-space:nowrap;gap:.07em}.icon{display:inline-grid;place-items:center;width:.91em;height:.91em;border-radius:42% 58% 54% 46%;vertical-align:.08em;font-size:.48em}.smile{border-radius:50%;background:var(--yellow);color:#876600}.code{background:#76b0fb;color:#174c8c;transform:rotate(-4deg)}.chain{background:#ff8589;color:#87383b;transform:rotate(4deg)}.ai{background:var(--purple);color:#604d8b}.icon svg{width:72%;height:72%;fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}.smile svg .eye{fill:currentColor;stroke:none}.hero-copy{width:min(800px,58%);margin:86px 0 0 auto;font:400 clamp(18px,1.5vw,24px)/1.72 var(--font-mono);color:#253047}.section{padding:135px 0;border-top:1px solid var(--line)}.dashed{border-top:2px dashed #c7cfdb}.section-head{display:grid;grid-template-columns:420px 1fr;gap:65px;margin-bottom:58px}.section-head h2,.timeline h2{margin:0;font-size:clamp(40px,4vw,62px);line-height:1.02;letter-spacing:-.045em}.section-copy,.timeline-intro{margin:0;font:400 clamp(17px,1.4vw,23px)/1.7 var(--font-mono);color:#273149}.projects{display:grid;grid-template-columns:repeat(4,minmax(285px,1fr));gap:20px;overflow-x:auto;padding-bottom:20px}.project{min-height:520px;padding:21px;border-radius:25px;color:white;display:flex;flex-direction:column}.project.red{background:var(--red)}.project.blue{background:var(--blue)}.project.dark{background:var(--dark)}.project.green{background:var(--green)}.project-top{display:flex;justify-content:space-between}.pill{padding:8px 13px;border-radius:999px;background:#ffffff20;font-size:14px}.project-mark{margin:auto;width:135px;height:135px;display:grid;place-items:center;border:5px solid;border-radius:32px;font:700 48px var(--font-mono);transform:rotate(-4deg)}.project h3{margin:0 0 12px;font-size:24px;line-height:1.12}.project p{margin:0 0 18px;color:#ffffffe0;line-height:1.55}.tags{display:flex;gap:7px;flex-wrap:wrap}.tag{padding:6px 10px;border-radius:999px;background:#ffffff1f;font-size:12px}.timeline{display:grid;grid-template-columns:420px 1fr;gap:65px}.section-label{margin:0 0 15px;font:500 11px var(--font-mono);text-transform:uppercase;color:var(--muted)}.timeline-intro{margin-bottom:42px}.timeline-item{display:grid;grid-template-columns:190px 1fr;gap:24px;padding:29px 0;border-top:1px solid var(--line)}.meta{font:500 12px/1.55 var(--font-mono);text-transform:uppercase;color:var(--muted)}.meta time{display:block;color:var(--blue);margin-bottom:7px}.timeline-item h3{margin:0 0 5px;font-size:23px}.role{margin:0 0 9px!important;color:var(--ink)!important;font-weight:700}.timeline-item p{margin:0;color:var(--muted);line-height:1.65}.academic{background:#ffffff42}.skills{display:flex;flex-wrap:wrap;gap:11px}.skill{padding:13px 16px;border:1px solid var(--line);border-radius:999px;background:white;font:500 13px var(--font-mono)}.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.focus{padding:25px;background:white;border:1px solid var(--line);border-radius:16px}.focus b{display:block;margin-bottom:10px;font-size:19px}.focus p{margin:0;color:var(--muted);line-height:1.6}.cta{padding:135px 0;text-align:center}.cta h2{max-width:940px;margin:0 auto 30px;font-size:clamp(48px,6vw,90px);line-height:.98;letter-spacing:-.055em}.button{display:inline-flex;padding:15px 21px;border-radius:999px;background:var(--ink);color:white;text-decoration:none;font:500 13px var(--font-mono)}.button:hover{background:var(--blue)}footer{padding:27px 0;border-top:1px solid var(--line);font:500 11px var(--font-mono);text-transform:uppercase}.footer{display:flex;justify-content:space-between}a:focus-visible{outline:var(--focus-ring);outline-offset:4px}@media(max-width:1000px){.nav{grid-template-columns:1fr auto}.links{display:none}.hero{padding-top:105px}.hero-copy{width:76%}.section-head,.timeline{grid-template-columns:1fr;gap:28px}.projects{grid-template-columns:repeat(4,330px)}.focus-grid{grid-template-columns:1fr}}@media(max-width:640px){.wrap{width:min(100% - 28px,var(--max))}.hero{padding:78px 0}.hero h1{font-size:47px}.hero-copy{width:100%;margin-top:58px;font-size:17px}.section{padding:82px 0}.projects{grid-template-columns:repeat(4,82vw)}.project{min-height:465px}.timeline-item{grid-template-columns:1fr;gap:9px}.footer{flex-direction:column;gap:9px}.icon-word{white-space:normal}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* Immersive scroll journey */
+.journey-road,.journey-scenery,#scroll-bike-container{display:none}
+@media (min-width:768px) and (prefers-reduced-motion:no-preference){
+  .has-scroll-journey body{overflow-x:clip;background:#f6f3f7}
+  .has-scroll-journey .header{position:fixed;inset:0 0 auto;z-index:60;background:rgba(250,249,252,.68);border-color:#ffffff80;box-shadow:0 8px 32px #26314b0d}
+  .has-scroll-journey .journey{position:relative;height:var(--journey-height,700vh)}
+  .has-scroll-journey .journey-sticky { position: sticky; top: 0; height: 100vh; overflow: hidden; isolation: isolate; z-index: 10; }
+  .has-scroll-journey .journey-track{display:flex;width:max-content;height:100%;will-change:transform;position:relative;z-index:6}
+  /* 1. Fix the Blurry/Faded Panels */
+  .has-scroll-journey .journey-panel { 
+    flex: 0 0 100vw; 
+    width: 100vw; 
+    height: 100vh; 
+    min-height: 0; 
+    overflow: clip; 
+    padding: 118px 0 132px; 
+    border: 0; 
+    /* Removed the opacity, scale, and blur transitions so text is always 100% crisp and readable */
+    opacity: 1; 
+    transform: none; 
+    filter: none;
+}
+/* We no longer need the .is-active state since the panels are always clear */
+  .has-scroll-journey .journey-panel.is-active { 
+    opacity: 1; 
+    transform: none; 
+  }
+
+  .has-scroll-journey .journey-panel>.wrap{position:relative;z-index:8}
+  .has-scroll-journey .hero{display:flex;align-items:center;background:linear-gradient(115deg,#eaf2ffcc,#fff6f1aa)}
+  .has-scroll-journey .hero h1{max-width:57%;font-size:clamp(50px,5.3vw,84px)}
+  .has-scroll-journey .hero-copy{width:min(620px,45%);margin:44px 0 0;font-size:clamp(15px,1.1vw,19px)}
+  .has-scroll-journey .section:nth-child(2){background:linear-gradient(115deg,#fff0f0d9,#fff8e8c7)}
+  .has-scroll-journey .section:nth-child(3){background:linear-gradient(115deg,#e9f4ffd9,#f5f9ffc7)}
+  .has-scroll-journey .section:nth-child(4){background:linear-gradient(115deg,#eef8f4d9,#f8fcf7c7)}
+  .has-scroll-journey .section:nth-child(5){background:linear-gradient(115deg,#edf8f3d9,#eef9f7c7)}
+  .has-scroll-journey .section:nth-child(6){background:linear-gradient(115deg,#fff2e6d9,#fff8efc7)}
+  .has-scroll-journey .cta{display:flex;align-items:center;background:linear-gradient(115deg,#e9e8ffd9,#faefffc7)}
+  .has-scroll-journey .project{min-height:min(470px,58vh);box-shadow:0 18px 50px #1a27431c;transition:transform .3s ease,box-shadow .3s ease}
+  .has-scroll-journey .project:hover{transform:translateY(-8px);box-shadow:0 26px 60px #1a27432b}
+
+  .journey-scenery{display:block;position:fixed;inset:0;z-index:2;overflow:hidden;pointer-events:none}
+  .sky-layer{position:absolute;inset:0;background:radial-gradient(circle at 82% 23%,#ffc9a1 0 3.5%,transparent 3.7%),linear-gradient(180deg,#eaf1ff 0,#fff8f3 62%,#e9f0ed 100%)}
+  .city-layer{position:absolute;left:-10vw;bottom:26px;width:220vw;height:34vh;opacity:.14;background:repeating-linear-gradient(90deg,transparent 0 5vw,#6f78a8 5.1vw 7.6vw,transparent 7.7vw 10vw);clip-path:polygon(0 100%,0 72%,4% 72%,4% 40%,7% 40%,7% 66%,11% 66%,11% 30%,14% 30%,14% 58%,18% 58%,18% 20%,22% 20%,22% 66%,26% 66%,26% 45%,30% 45%,30% 68%,35% 68%,35% 25%,39% 25%,39% 60%,44% 60%,44% 42%,49% 42%,49% 70%,54% 70%,54% 34%,59% 34%,59% 62%,64% 62%,64% 18%,68% 18%,68% 68%,73% 68%,73% 40%,78% 40%,78% 65%,83% 65%,83% 28%,88% 28%,88% 69%,93% 69%,93% 46%,100% 46%,100% 100%);will-change:transform}
+  .hill-layer{position:absolute;left:-10vw;bottom:26px;width:220vw;will-change:transform}
+  .hill-back{height:23vh;background:#b7c9df55;clip-path:polygon(0 100%,0 72%,8% 35%,16% 68%,24% 28%,33% 74%,43% 42%,53% 72%,62% 32%,72% 70%,81% 38%,91% 74%,100% 45%,100% 100%)}
+  .hill-front{height:15vh;background:#8dbca755;clip-path:polygon(0 100%,0 77%,9% 42%,18% 75%,29% 36%,40% 78%,52% 47%,63% 75%,74% 30%,86% 76%,94% 48%,100% 72%,100% 100%)}
+  .speed-lines{position:absolute;inset:18% 0 14%;background:repeating-linear-gradient(0deg,transparent 0 72px,#42506d24 73px 74px,transparent 75px 144px);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);opacity:0;transition:opacity .16s}
+
+  .journey-road{display:block;position:fixed;left:0;right:0;bottom:26px;height:3px;z-index:19;overflow:hidden;opacity:.52;pointer-events:none}
+  .journey-road span{display:block;width:calc(100% + 128px);height:100%;background:repeating-linear-gradient(90deg,var(--ink) 0 32px,transparent 32px 64px);will-change:transform}
+}
+@media (prefers-reduced-motion:reduce),(max-width:767px){
+  .journey-sticky{position:static;height:auto;overflow:visible}.journey-track{display:block;transform:none!important}.journey-panel{width:auto;height:auto;opacity:1;transform:none}.journey-scenery,.journey-road,#scroll-bike-container{display:none!important}
+}
+
+
+/* Implementation pass: route-map typography, one scroll system, and a single cyclist definition. */
+h1,h2,h3,.brand{font-family:var(--font-display)}
+.sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.links a[aria-current="location"]{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:7px}
+
+@media (min-width:768px) and (prefers-reduced-motion:no-preference){
+  .has-scroll-journey .header{z-index:var(--z-header)}
+  .has-scroll-journey .journey-sticky{z-index:var(--z-sticky)}
+  .has-scroll-journey .journey-track{z-index:var(--z-track)}
+  .has-scroll-journey .journey-panel{padding:var(--panel-pad-top) 0 var(--panel-pad-bottom);overflow:clip}
+  .has-scroll-journey .journey-panel>.wrap{z-index:var(--z-content)}
+  .journey-scenery{z-index:var(--z-scenery)}
+  .journey-road{bottom:var(--road-offset);z-index:var(--z-road)}
+  #scroll-bike-container{display:block;position:fixed;left:0;bottom:var(--road-offset);width:clamp(300px,34vw,500px);aspect-ratio:626/501;z-index:var(--z-bike);pointer-events:none;transform-origin:50% 100%;will-change:transform}
+  #scroll-bike-container img{display:block;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;user-select:none}
+}
+
+/* A short viewport cannot safely support full-height panels without nested scrolling. */
+@media (min-width:768px) and (max-height:779px){
+  .has-scroll-journey .journey-sticky{position:static;height:auto;overflow:visible}
+  .has-scroll-journey .journey-track{display:block;width:auto;height:auto;transform:none!important}
+  .has-scroll-journey .journey-panel{width:auto;height:auto;overflow:visible}
+  .has-scroll-journey .journey-scenery,
+  .has-scroll-journey .journey-road,
+  .has-scroll-journey #scroll-bike-container{display:none!important}
+}
